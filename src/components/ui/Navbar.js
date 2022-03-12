@@ -32,12 +32,19 @@ export const Navbar = () => {
           >
             DC
           </NavLink>
+          <NavLink
+            activeclassname="active"
+            className="nav-item nav-link"
+            to="/search"
+          >
+            Search
+          </NavLink>
         </div>
       </div>
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">Fernando</span>
+          <span className="nav-item nav-link text-info">Rabi</span>
           <button
             className="nav-item nav-link btn"
             exact
