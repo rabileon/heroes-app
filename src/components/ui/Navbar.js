@@ -53,7 +53,7 @@ export const Navbar = () => {
           <span className="nav-item nav-link text-info">{user.name}</span>
           <button
             className="nav-item nav-link btn"
-            exact
+            exact="true"
             to="/login"
             onClick={handleLogout}
           >

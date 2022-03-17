@@ -20,23 +20,23 @@ describe('Pruebas en <AppRouter />', () => {
     expect(wrapper.find('h1').text().trim()).toBe('Login');
   });
 
-  //   test('debe de mostrar el componente de Marvel si está autenticado', () => {
-  //     const contextValue = {
-  //       user: {
-  //         logged: true,
-  //         name: 'Pepe',
-  //       },
-  //     };
+  test('debe de mostrar el componente de Marvel si está autenticado', () => {
+    const contextValue = {
+      user: {
+        logged: true,
+        name: 'Pepe',
+      },
+    };
 
-  //     const wrapper = mount(
-  //       <AuthContext.Provider value={contextValue}>
-  //         <AppRouter />
-  //       </AuthContext.Provider>
-  //     );
+    const wrapper = mount(
+      <AuthContext.Provider value={contextValue}>
+        <AppRouter />
+      </AuthContext.Provider>
+    );
 
-  //     // console.log(wrapper.html());
+    // console.log(wrapper.html());
 
-  //     expect(wrapper).toMatchSnapshot();
-  //     expect(wrapper.find('.navbar').exists()).toBe(true);
-  //   });
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('.navbar').exists()).toBe(true);
+  });
 });
