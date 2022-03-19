@@ -37,34 +37,30 @@ describe('Pruebas en <HeroScreen />', () => {
     expect(wrapper.find('.row').exists()).toBe(true);
   });
 
-  // test('debe de regresar a la pantalla anterior', () => {
+  test('debe de regresar a la pantalla anterior', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/hero/marvel-spider']}>
+        <Routes>
+          <Route path="/hero/:heroId" element={<HeroScreen />} />
+        </Routes>
+      </MemoryRouter>
+    );
 
-  //     const wrapper = mount(
-  //         <MemoryRouter initialEntries={['/hero/marvel-spider']}>
-  //             <Routes>
-  //                 <Route path="/hero/:heroeId" element={<HeroScreen />} />
-  //             </Routes>
-  //         </MemoryRouter>
-  //     );
+    wrapper.find('button').prop('onClick')();
 
-  //     wrapper.find('button').prop('onClick')();
+    expect(mockNavigate).toHaveBeenCalledWith(-1);
+  });
 
-  //     expect( mockNavigate ).toHaveBeenCalledWith(-1);
+  test('debe de mostrar el No Hero Page si no tenemos un héroe', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/hero/marvel-spider12312312']}>
+        <Routes>
+          <Route path="/hero/:heroId" element={<HeroScreen />} />
+          <Route path="/" element={<h1>No Hero Page</h1>} />
+        </Routes>
+      </MemoryRouter>
+    );
 
-  // })
-
-  // test('debe de mostrar el No Hero Page si no tenemos un héroe', () => {
-
-  //     const wrapper = mount(
-  //         <MemoryRouter initialEntries={['/hero/marvel-spider12312312']}>
-  //             <Routes>
-  //                 <Route path="/hero/:heroeId" element={<HeroScreen />} />
-  //                 <Route path="/" element={ <h1>No Hero Page</h1> } />
-  //             </Routes>
-  //         </MemoryRouter>
-  //     );
-
-  //     expect( wrapper.text() ).toBe('No Hero Page');
-
-  // })
+    expect(wrapper.text()).toBe('No Hero Page');
+  });
 });
